@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    background-color: #080d1a;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #080d1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #dc2626;
+}
+
+/* Festive Glow & Effects */
+.glow-gold {
+  box-shadow: 0 0 25px -5px rgba(234, 179, 8, 0.4);
+}
+
+.glow-red {
+  box-shadow: 0 0 30px -5px rgba(239, 68, 68, 0.45);
+}
+
+.glow-ice {
+  box-shadow: 0 0 30px -5px rgba(56, 189, 248, 0.45);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 30px -5px rgba(16, 185, 129, 0.45);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #fef08a 0%, #eab308 50%, #ca8a04 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-ice-gradient {
+  background: linear-gradient(135deg, #e0f2fe 0%, #38bdf8 50%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-xmas-gradient {
+  background: linear-gradient(135deg, #fecaca 0%, #ef4444 50%, #b91c1c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-panel {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(18, 28, 48, 0.55);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}

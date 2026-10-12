@@ -71,3 +71,24 @@ Certifique-se de ter o **[Node.js](https://nodejs.org/)** (versão 16 ou superio
 2. **Instale as dependências:**
    ```bash
    npm install
+
+3. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
+4. **Acesse no navegador:** 
+O terminal fornecerá um link local (ex: `http://localhost:5173`). Segure `Ctrl` e clique no link para abrir o site.
+
+## 🔗 Links Úteis
+
+- **IP do Servidor:** `TWNetwork.com.br`
+- **Discord Oficial:** Em breve
+- **Loja Oficial:** Integrada neste site.
+
+## 👨‍💻 Autores & Idealizadores
+
+Um projeto criado com muita dedicação por jogadores, para jogadores.
+
+- **TW Studios**
+  - Nick no Minecraft: **TeDabliukkkkk**
+  - Função: Fundador & Desenvolvedor

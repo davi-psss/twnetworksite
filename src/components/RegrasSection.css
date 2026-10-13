@@ -1,0 +1,122 @@
+.regras-section {
+  padding: 80px 5%;
+  background-color: #0c0c0e;
+  border-bottom: 1px solid #1f1f23;
+}
+
+.regras-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 40px auto;
+}
+
+.regras-header h2 {
+  font-size: 2.3rem;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.regras-header p {
+  color: #a1a1aa;
+  font-size: 1.05rem;
+}
+
+.regras-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.tab-regra-btn {
+  background-color: #18181b;
+  border: 1px solid #27272a;
+  color: #a1a1aa;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-regra-btn:hover {
+  background-color: #27272a;
+  color: #ffffff;
+}
+
+.tab-regra-btn.ativa {
+  background-color: #7c3aed;
+  border-color: #8b5cf6;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(124, 58, 237, 0.35);
+}
+
+.regras-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.regra-card {
+  background-color: #141417;
+  border: 1px solid #27272a;
+  border-radius: 12px;
+  padding: 22px 25px;
+  transition: border-color 0.2s ease;
+}
+
+.regra-card:hover {
+  border-color: #3f3f46;
+}
+
+.regra-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.regra-titulo {
+  font-size: 1.15rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.badge-punicao {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.badge-punicao.leve {
+  background-color: rgba(234, 179, 8, 0.15);
+  color: #facc15;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+.badge-punicao.medio {
+  background-color: rgba(249, 115, 22, 0.15);
+  color: #fb923c;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.badge-punicao.critico {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.regra-detalhe {
+  color: #a1a1aa;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}

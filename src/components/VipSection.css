@@ -1,0 +1,141 @@
+.vip-container {
+  padding: 80px 5%;
+  background-color: #09090b; /* Fundo escuro igual ao restante do site */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vip-header {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 600px;
+}
+
+.vip-header h2 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.vip-header p {
+  color: #a1a1aa;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.vip-cards-wrapper {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.vip-card {
+  background-color: #18181b;
+  border: 1px solid #27272a;
+  border-radius: 12px;
+  padding: 40px 30px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vip-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
+  border-color: #3f3f46;
+}
+
+.vip-card.destaque {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+  transform: scale(1.05);
+}
+
+.vip-card.destaque:hover {
+  transform: scale(1.05) translateY(-10px);
+}
+
+.badge-recomendado {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+  color: white;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.vip-nome {
+  font-size: 1.5rem;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.vip-preco {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #27272a;
+  padding-bottom: 20px;
+}
+
+.periodo {
+  font-size: 1rem;
+  color: #a1a1aa;
+  font-weight: normal;
+}
+
+.vip-beneficios {
+  list-style: none;
+  flex: 1; /* Faz a lista crescer para empurrar o botão pro fundo */
+  margin-bottom: 30px;
+}
+
+.vip-beneficios li {
+  color: #e4e4e7;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-comprar {
+  width: 100%;
+  padding: 15px;
+  background-color: #27272a;
+  color: #ffffff;
+  border: 1px solid #3f3f46;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-comprar:hover {
+  background-color: #3f3f46;
+}
+
+.vip-card.destaque .btn-comprar {
+  background-color: #7c3aed;
+  border: none;
+}
+
+.vip-card.destaque .btn-comprar:hover {
+  background-color: #6d28d9;
+}

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 export default function Snowfall() {
   const canvasRef = useRef(null);
@@ -8,83 +8,76 @@ export default function Snowfall() {
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
-    let animationFrameId;
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
+    let animacaoId;
 
-    const handleResize = () => {
-      if (!canvas) return;
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+    // Ajusta o tamanho do canvas para ocupar todo o ecrã
+    const ajustarTamanho = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     };
 
-    window.addEventListener('resize', handleResize);
+    ajustarTamanho();
+    window.addEventListener('resize', ajustarTamanho);
 
-    // Generate snowflakes
-    const flakeCount = Math.floor(Math.min(width / 14, 75));
-    const flakes = [];
+    // Configuração dos flocos de neve
+    const totalFlocos = 45;
+    const flocos = Array.from({ length: totalFlocos }).map(() => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      raio: Math.random() * 2 + 1, // Tamanho entre 1px e 3px
+      velocidadeY: Math.random() * 1 + 0.5,
+      velocidadeX: Math.random() * 0.5 - 0.25,
+      opacidade: Math.random() * 0.5 + 0.3
+    }));
 
-    for (let i = 0; i < flakeCount; i++) {
-      flakes.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        radius: Math.random() * 2.5 + 0.8,
-        density: Math.random() * flakeCount,
-        speed: Math.random() * 1.2 + 0.4,
-        opacity: Math.random() * 0.7 + 0.3,
-        swaySpeed: Math.random() * 0.02 + 0.005,
-        swayOffset: Math.random() * Math.PI * 2,
-      });
-    }
+    // Ciclo de animação contínuo
+    const animar = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    let angle = 0;
-
-    const render = () => {
-      ctx.clearRect(0, 0, width, height);
-      angle += 0.01;
-
-      for (let i = 0; i < flakes.length; i++) {
-        const flake = flakes[i];
-        
+      flocos.forEach((floco) => {
         ctx.beginPath();
-        ctx.fillStyle = `rgba(255, 255, 255, ${flake.opacity})`;
-        ctx.shadowColor = 'rgba(255, 255, 255, 0.4)';
-        ctx.shadowBlur = 4;
-        ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2, true);
+        ctx.arc(floco.x, floco.y, floco.raio, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${floco.opacidade})`;
         ctx.fill();
 
-        // Update positions
-        flake.y += flake.speed;
-        flake.x += Math.sin(angle + flake.swayOffset) * 0.7;
+        floco.y += floco.velocidadeY;
+        floco.x += floco.velocidadeX;
 
-        // Reset if out of screen
-        if (flake.y > height + 5) {
-          flake.y = -5;
-          flake.x = Math.random() * width;
+        // Se o floco passar o fundo do ecrã, reinicia no topo
+        if (floco.y > canvas.height) {
+          floco.y = -5;
+          floco.x = Math.random() * canvas.width;
         }
-        if (flake.x > width + 5) {
-          flake.x = -5;
-        } else if (flake.x < -5) {
-          flake.x = width + 5;
-        }
-      }
 
-      animationFrameId = requestAnimationFrame(render);
+        // Se sair pelas laterais, reposiciona
+        if (floco.x > canvas.width) floco.x = 0;
+        if (floco.x < 0) floco.x = canvas.width;
+      });
+
+      animacaoId = requestAnimationFrame(animar);
     };
 
-    render();
+    animar();
 
+    // Limpeza de eventos e animação ao desmontar o componente
     return () => {
-      window.removeEventListener('resize', handleResize);
-      cancelAnimationFrame(animationFrameId);
+      cancelAnimationFrame(animacaoId);
+      window.removeEventListener('resize', ajustarTamanho);
     };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-10 opacity-70"
-      style={{ display: 'block' }}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        pointerEvents: 'none', // Permite clicar em botões por baixo da neve
+        zIndex: 50,
+      }}
     />
   );
 }
